@@ -23,7 +23,7 @@
 */
 
 /*
-* This project is built based on OPENCV 3.0.0.
+* This project is built based on OPENCV with version of 3.0.0.
 * The core algorithms for the morphorlogic feature analysis of free
 * moving C. elegans are enclosed in the class named "WormTrack". In
 * this code, the usesage of the WormTrack is illustrated by analysing

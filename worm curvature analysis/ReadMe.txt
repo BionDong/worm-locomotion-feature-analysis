@@ -6,7 +6,9 @@
 * part on the worm body with high speed.
 *
 * This algorithm is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY for a perticular use.
+* but WITHOUT ANY WARRANTY for a perticular use. For the most up to
+* date version of this software, see:
+* https://github.com/BionDong/worm-locomotion-feature-analysis
 *
 * NOTE: If you use any portion of this code in your research, kindly cite:
 * Dong, Xianke, Pengfei Song, and Xinyu Liu. "An Automated 

@@ -11,10 +11,16 @@
 * https://github.com/BionDong/worm-locomotion-feature-analysis
 *
 * NOTE: If you use any portion of this code in your research, kindly cite:
-* Dong, Xianke, Pengfei Song, and Xinyu Liu. "An Automated 
+* [1] Xianke Dong, Pengfei Song, and Xinyu Liu. "An Automated 
 * Microfluidic System for Morphological Measurement and Size-Based 
-* Sorting of C. Elegans." IEEE transactions on nanobioscience (2019).
-* and our following works on C. elegans microrobot.
+* Sorting of C. Elegans." IEEE transactions on nanobioscience (2019),
+*
+* and our following works on C. elegans light-driven microrobot:
+* [2] Xianke Dong, Sina Kheiri, Yangning Lu, Zhaoyi Xu, Mei Zhen, 
+* Xinyu Liu, "Toward a living soft microrobot through optogenetic 
+* locomotion control of Caenorhabditis elegans." Science Robotics 6, 
+* eabe3950 (2021).
+
 */
 
 /*

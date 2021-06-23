@@ -6,15 +6,22 @@
 * part on the worm body.
 *
 * This algorithm is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY for a perticular use.For the most up 
+* but WITHOUT ANY WARRANTY for a perticular use. For the most up 
 * to date version of this software, see:
-* 
+* https://github.com/BionDong/worm-locomotion-feature-analysis
 *
 * NOTE: If you use any portion of this code in your research, kindly cite:
-* Dong, Xianke, Pengfei Song, and Xinyu Liu. "An Automated 
+* 
+* X. Dong, P. Song, and X. Liu. "An Automated 
 * Microfluidic System for Morphological Measurement and Size-Based 
 * Sorting of C. Elegans." IEEE transactions on nanobioscience (2019).
-* and our following works on C. elegans microrobot.
+*
+* and our following works on C. elegans microrobot:
+* 
+* X. Dong, S. Kheiri, Y. Lu, Z. Xu, M. Zhen, X. Liu, "Toward a living 
+* soft microrobot through optogenetic locomotion control of 
+* Caenorhabditis elegans." Science Robotics 6, eabe3950 (2021).
+*
 */
 
 /*
@@ -29,7 +36,6 @@
 * this code, the usesage of the WormTrack is illustrated by analysing
 * 49 images for continuous worm moving.
 */
-
 
 
 #include "stdafx.h"
@@ -65,13 +71,14 @@ int main()
 	segment.head = head;
 	segment.tail = tail;
 
-	for (int j = 1; j <= 49; j++) // 49 continous images for instance
+	for (int j = 1; j <= 49; j++) // 49 continous sample images
 	{
 		/*load images*/
-		String n, b;
+		string folder = "samples\\";
+		string n, b;
 		n = to_string(j);
-		b = n + ".jpg";
-		String name(b);
+		b = folder + n + ".jpg";
+		string name(b);
 
 	    Mat I = imread(name, 0); // for worm shape analysis
 		Mat I_color = imread(name, 1); // to record the analysis result
@@ -86,7 +93,8 @@ int main()
 		/*create instant for worm shape analysis*/
 		WormTrack Track(I, 1, guassian, threshold, morpology, partnum, m_A, m_B, &segment, switchht);
 		
-		Timer.StartTimer("time cost for one image"); // record time cost
+		string s = "time cost for image " + to_string(j);
+		Timer.StartTimer(s.c_str()); // record time cost
 
 		/*start image processing*/
 		Track.PreProcess();
@@ -114,9 +122,10 @@ int main()
 			<< segment.width << " pixels; volume: " << segment.volume << " cube pixels." << endl;
 
 		//save results
-		String a;
-		a = n + "_.jpg";
-		String c(a);
+		folder += "analysis results\\";
+		string a;
+		a = folder + n + "_.jpg";
+		string c(a);
 		imwrite(c, I_color);
 
 		//update ROI
@@ -247,7 +256,6 @@ int FindPerpPoint(vector<Point>* input, Point x, Point targent, Point &result, i
 	return index;
 }
 
-
 int FindMax(vector<double>* input, int start, int end)
 {
 	double Max = -100;
@@ -280,7 +288,6 @@ int FindMin(vector<double>* input, int start, int end)
 	return indexMin;
 }
 
-// for curvature analysis
 int CurvatureAnalysis(vector<double>* curvature, vector<Point>& cur)
 {
 	if (curvature->size() == 0)

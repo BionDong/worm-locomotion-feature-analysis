@@ -303,6 +303,8 @@ int WormTrack::curvature(vector<Point>* input, vector<double>& output, int step)
 	}
 	
 	output = vecCurvature;
+
+	return 1;
 }
 
 int WormTrack::ResampleDist_2f(vector<Point>* input, vector<Point2f>& output, vector<Point>& lookuptab, int pointnum)
